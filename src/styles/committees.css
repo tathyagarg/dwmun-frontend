@@ -1,0 +1,439 @@
+.all {
+    margin-bottom: 10vh;
+}
+
+.header {
+    text-align: center;
+    font-size: 20vh;
+    font-weight: 400;
+    color: white;
+
+    font-family: "Glockenspiel";
+    letter-spacing: 0.4vh;
+    margin-bottom: 2vh;
+}
+
+.committees {
+    height: auto;
+}
+
+.jumpto-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5vh;
+
+    & > a {
+        color: white;
+        text-decoration: none;
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+    }
+
+    & > a:not(:last-child) { border-right: 1px solid #ffffffba; }
+    & > a:visited { color: white; }
+    & > a:hover { color: #cacaca; }
+}
+
+.comm {
+    background-color: rgba(25, 40, 34, 0.5);
+    background-blend-mode: multiply;
+    height: 75vh;
+    padding-top: 0.5%;
+    padding-left: 0.5%;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100vw;
+    transition-duration: 500ms;
+    background-position-y: 50%;
+
+    &:hover { background-color: rgba(25, 40, 34, 0.3); }
+    &:hover > a {
+        font-size: 33vh;
+        line-height: 33vh;
+        margin: 0;
+    }
+    & > a { font-family: "Glockenspiel", serif; }
+    & > a::before { margin-top: 7.5vh; }
+}
+
+#committee-x { background-image: url('../assets/comm-bgs/ssci.webp'); }
+
+#unsc { background-image: url('../assets/comm-bgs/unsc.webp'); }
+
+#ccc { background-image: url('../assets/comm-bgs/ccc.webp'); }
+
+#lok-sabha { background-image: url('../assets/comm-bgs/lok-sabha.webp'); }
+
+#unhrc { background-image: url('../assets/comm-bgs/unhrc.webp'); }
+
+#ipc { background-image: url('../assets/comm-bgs/ipc.webp'); }
+
+#disec {
+    background-image: url('../assets/comm-bgs/disec.webp');
+    background-position-y: 0%;
+}
+
+/* --------------------------------------------------------- */
+
+h1, p {
+    z-index: 2;
+}
+
+.comm-content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    color: white;
+
+    height: 82.5vh;
+    width: 90vw;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0.25vw;
+    grid-row-gap: 0.25vw;
+
+    & > div {
+        border: 1px solid white;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        position: relative;
+    }
+
+    & > div::before {
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(30, 50, 44, 0.9),
+            transparent 40%
+        );
+        border-radius: inherit;
+        content: "";
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 500ms;
+        position: absolute;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    & > div:hover::before {
+        opacity: 1;
+    }
+}
+
+.comm-header {
+    grid-area: 1 / 1 / 4 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > h1 {
+        font-family: "Glockenspiel", serif;
+        font-size: 17vh;
+        line-height: 17vh;
+
+        &::before {
+            content: 'The';
+            font-size: 4vh;
+            line-height: 4vh;
+            display: block;
+            margin-left: 48%;
+        }
+    }
+}
+
+.agenda-header {
+    grid-area: 4 / 1 / 6 / 2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    & > h1 {
+        font-size: 4vh;
+        margin: 0.5vh 0 0.5vh 0;
+        font-family: "Glockenspiel", serif;
+        letter-spacing: 0.075vw;
+    }
+}
+
+.carousel {
+    grid-area: 4 / 2 / 6 / 4;
+    position: relative;
+}
+
+.nav-controller {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    z-index: 100;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+
+
+    & > a {
+        width: 1.5vh;
+        height: 1.5vh;
+        background-color: #fff;
+        opacity: 0.75;
+        border-radius: 50%;
+        border: 20px;
+        cursor: pointer;
+        z-index: inherit;
+    }
+}
+
+.inactive {
+    display: none !important;
+}
+
+.slide {
+    width: 32vw;
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2%;
+
+    display: flex;
+    flex-direction: column;
+
+    & > p {
+        font-size: 1.5vh;
+        margin: 0;
+    }
+
+    & > h1 {
+        font-size: 3vh;
+        line-height: 3vh;
+        margin-bottom: 2%;
+    }
+
+    & > img {
+        height: 100%;
+        z-index: 100;
+    }
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-guide {
+    grid-area: 4 / 4 / 6 / 5;
+
+    & > a {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    & > a > h1 {
+        margin: 0 auto 0 auto;
+        font-size: 5vh;
+        font-family: "Glockenspiel", serif;
+        letter-spacing: 0.075vw;
+    }
+
+    & > a > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.chair {
+    grid-area: 1 / 4 / 4 / 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    & > h1 {
+        font-family: "Glockenspiel", serif;
+        font-size: 4vh;
+        line-height: 4vh;
+        letter-spacing: 0.075vw;
+        margin: 1vh 0 1vh 0;
+    }
+}
+
+.chairperson {
+    width: 100%;
+    height: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid white;
+
+    & > p {
+        font-size: 1.5vh;
+        margin: 0;
+    }
+
+    & > h1 {
+        font-size: 3vh;
+        margin: 0;
+        font-family: "Glockenspiel", serif;
+        letter-spacing: 0.075vw;
+    }
+
+    & > img {
+        z-index: 2;
+        width: 100%;
+    }
+}
+
+.matrix {
+    grid-area: 1 / 5 / 6 / 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    & > h1 {
+        font-size: 4vh;
+        line-height: 4vh;
+        font-family: "Glockenspiel", serif;
+        letter-spacing: 0.075vw;
+    }
+
+    & > iframe {
+        z-index: 2;
+        height: 72.25vh;
+        filter: invert(1) hue-rotate(70deg) contrast(0.85);
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .header {
+        font-size: 7vh;
+    }
+
+    .committees {
+        display: block;
+        width: 100%;
+        overflow-x: hidden;
+        height: auto;
+    }
+
+    .comm {
+        height: 50vh;
+        padding-top: 5%;
+        padding-left: 5%;
+        width: 100%;
+
+        & > a {
+            font-size: 9vh;
+            line-height: 9vh;
+            width: fit-content;
+            overflow-x: hidden;
+        }
+
+        & > a::before {
+            font-size: 3vh;
+            line-height: 3vh;
+        }
+    }
+
+    .comm-content {
+        display: block;
+
+        & > div {
+            margin-bottom: 1vh;
+        }
+
+        & > div::before {
+            display: none;
+        }
+    }
+
+    .comm-header {
+
+        & > h1 {
+            font-size: 7vh;
+            line-height: 7vh;
+            margin: 0;
+            margin-right: 1vw;
+            margin-bottom: 2vh;
+        }
+
+        & > h1::before {
+            font-size: 2vh;
+            line-height: 2vh;
+            margin-top: 2vh;
+        }
+    }
+
+    .agenda-header {
+        font-size: 1.25vh;
+        padding-bottom: 2vh;
+
+        &::before {
+            font-size: 4vh;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .slide {
+        width: 90%;
+        margin-bottom: 2vh;
+
+        & > img {
+            margin: 0;
+            aspect-ratio: 1/1;
+            width: 100%;
+        }
+    }
+
+    .nav-controller {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    #logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .bg-guide {
+        grid-area: 4 / 1 / 5 / 2;
+    }
+
+    .chair {
+        grid-area: 4 / 2 / 5 / 3;
+    }
+
+    .matrix {
+        grid-area: 5 / 1 / 7 / 3;
+    }
+
+    #ccc, #commitee-x, #lok-sabha, #unhrc, #unsc {
+        background-position-x: 50%;
+    }
+
+    .jumpto-bar {
+        font-size: 1.25vh;
+        line-height: 1.25vh;
+    }
+
+    .jumpto-header {
+        font-size: 2vh;
+        line-height: 2vh;
+    }
+}

@@ -1,0 +1,35 @@
+.topnav {
+    height: 7.5vh;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--secondary-light);
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    & > a {
+        margin: 0 2vw;
+        font-size: 2vh;
+    }
+}
+
+.logo {
+    box-sizing: border-box;
+    height: 100%;
+    margin-right: 2vw;
+    padding: 0 0.5vw 0 0.5vw;
+    background: white;
+    margin-left: auto;
+
+    & > a { margin: 0; }
+    & img { height: 100%; }
+}
+
+@media screen and (max-width: 1200px) {
+    .topnav > a { font-size: 1.25vh; }
+    .logo { height: 75%; }
+}
