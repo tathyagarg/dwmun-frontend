@@ -21,7 +21,7 @@ const scrollToTop = () => {
 
 export default function Navbar() {
     return <nav className='topnav' id="topnav">
-        <NavLink to="/dwmun" onClick={scrollToTop}>Home</NavLink>
+        <NavLink to="/" onClick={scrollToTop}>Home</NavLink>
         <NavLink to="/committees" onClick={scrollToTop}>Committees</NavLink>
         <NavLink to="/secretariat" onClick={scrollToTop}>Secretariat</NavLink>
         <NavLink to="/registration" onClick={scrollToTop}>Registration</NavLink>
