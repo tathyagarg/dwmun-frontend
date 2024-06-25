@@ -31,7 +31,7 @@ function App() {
         <Router>
             <Navbar></Navbar>
             <Routes>
-                <Route exact path="/dwmun" element={<Home/>}/>
+                <Route exact path="/" element={<Home/>}/>
                 <Route path="/committees" element={<Committees/>}/>
                 <Route path="/committees/unsc" element={<UNSC/>}/>
                 <Route path="/committees/unhrc" element={<UNHRC/>}/>
